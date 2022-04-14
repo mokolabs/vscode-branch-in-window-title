@@ -20,9 +20,9 @@ const updateTitle = curry(
 export default updateTitle;
 
 const makeTitle = (currentTitle: string, branchName: string | undefined): string => {
-  const withoutBranch = currentTitle.replace(/ \${separator} \[Branch: .*\]/, '');
+  const withoutBranch = currentTitle.replace(/ \${separator} .*/, '');
   if (branchName) {
-    return `${withoutBranch} \${separator} [Branch: ${branchName}]`;
+    return `${withoutBranch} \${separator} ${branchName}`;
   }
   return withoutBranch;
 };
